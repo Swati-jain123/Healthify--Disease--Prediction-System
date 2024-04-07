@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Healthify</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<style type="text/css">
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.required::after{
+  content: '*';
+  color: red;
+}
+
+body {
+            font-family: Arial, sans-serif;
+        }
+
+         .cardcontent {
+            margin-left: 20px;
+            margin-right: 20px;
+            max-width: 100%;
+            padding: 20px;
+            border: 5px solid grey;
+            border-radius: 20px;
+            overflow: hidden; /* Ensure content doesn't overflow */
+        }
+
+        /* Styles for the rowwww class */
+        .rowwww {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Add some gap between columns */
+        }
+
+        /* Styles for the col-sm class */
+        .col-sm {
+            flex: 1;
+            height:500px;
+            background-color: #fff;
+            box-shadow: 5px 2px 5px gray;
+            border-radius: 20px;
+            overflow: hidden; /* Ensure content doesn't overflow */
+        }
+
+        /* Styles for the card-img-top class */
+        .card-img-top {
+            width:90%;
+            height:73%; /* Increased maximum height for the images */
+            margin-bottom:-30px;
+             margin-top:10px;
+
+        }
+
+        /* Styles for the card-body class */
+        .card-body {
+            text-align: center;
+            padding: 10px; /* Adjusted padding for reduced margin */
+        }
+
+        /* Styles for the email-icon class */
+        .email-icon{
+        color:red;
+        }
+        .email-icon,
+        .fab {
+            font-size: 24px; /* Increased size of icons */
+
+        }
+
+        /* Media queries for responsiveness */
+        @media only screen and (max-width: 992px) {
+            .cardcontent {
+                padding: 10px; /* Adjust padding for smaller screens */
+            }
+            .rowwww {
+                flex-direction: column; /* Stack columns vertically on smaller screens */
+                align-items: center;
+            }
+        }
+
+    .containerL {
+    border: 5px solid grey;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-groupL {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+
+    box-sizing: border-box;
+
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .containerL {
+        padding: 10px;
+        margin-left: 10px; /* Add margin from left */
+        margin-right: 10px; /* Add margin from right */
+    }
+
+    button[type="submit"] {
+        width: calc(100% - 20px); /* Adjust button width to account for margins */
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.content {
+    flex: 1;
+    margin-right: 10px; /* Adjust spacing between content and image */
+    text-align: center;
+}
+
+.image-container {
+    flex: 1;
+    text-align: center;
+}
+
+/* Styles for the content */
+.container {
+    display: flex;
+    flex-direction: column; /* Ensure content and image are stacked vertically */
+    align-items: center;
+}
+
+/* Styles for the content */
+.content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styles for the cards */
+.card {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the image-container */
+.image-container {
+    text-align: center;
+    width: 100%;
+}
+
+/* Styles for the image */
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media queries for responsiveness */
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Switch back to side-by-side layout on larger screens */
+        justify-content: space-between;
+
+    }
+    .content {
+        text-align: left;
+        margin-right: 100px; /* Adjust spacing between content and image */
+        margin-left: -100px; /* Negative margin for laptop devices */
+    }
+}
+.inp{
+     appearance: none; /* Remove default styling */
+    -webkit-appearance: none; /* For older versions of webkit browsers */
+    -moz-appearance: none; /* For older versions of Firefox */
+    padding: 10px; /* Adjust padding as needed */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Border color */
+    background-color: #fff; /* Background color */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    font-size: 16px; /* Font size */
+}
+.inp:hover {
+    border-color: #999; /* Darker border color on hover */
+}
+
+/* Add focus effect for the text input box */
+.inp:focus {
+    border-color: #dc3545; /* Highlight border color on focus */
+    outline: none; /* Remove default outline */
+}
+</style>
+</head>
+<body>
+  <!--Navbar-->
+  
+  {% include 'Navbar.html' %}
+    <!--NavbarEnd-->
+    
+    <div class="container">
+        <div class="content">
+            <h2 style="color: maroon;">At Healthify</h2>
+            <p>We are committed to making healthcare more proactive, personalized, and accessible. Our mission is to empower individuals with the knowledge to manage their health and prevent diseases before they occur.</p>
+            <b style="color:maroon;">How It Works?</b>
+
+            <div class="card" style="background-color: rgb(245, 160, 160);">
+                <b>Data Input</b>
+                <p>Provide your health and lifestyle information securely.</p>
+            </div>
+            <div class="card" style="background-color: #d7fbf7;">
+                <b>Analysis</b>
+                <p>Our advanced algorithms analyze your data to assess disease risks.</p>
+            </div>
+            <div class="card" style="background-color: #eedfc4;">
+                <b>Predictions</b>
+                <p>Receive personalized predictions and recommendations instantly.</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img class="image" src="https://img.freepik.com/free-vector/online-doctor-concept_23-2148546391.jpg" alt="Health Image">
+        </div>
+    </div> 
+
+    {%include 'main.html'%}
+  
+<!--Card Start-->
+
+  <div class="cardcontent">
+        <div class="rowwww">
+            <div class="col-sm">
+                <img src="/static/Images/WhatsApp Image 2023-10-31 at 19.35.05.jpeg"  class="card-img-top"
+                    alt="Devesh Tiwari">
+                <div class="card-body">
+                    <p><b>DEVESH TIWARI</b>Software Developer</p>
+                    <div>
+                        <a href="mailto:deveshivp2001@gmail.com" class="email-icon fas fa-envelope"></a>
+                        <a href="https://www.linkedin.com/in/devesh-tiwari-5623681b9" class="fab fa-linkedin"></a>
+                        <a href="https://github.com/DeveshTiwari2002" class="fab fa-github"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <img src="/static/Images/kg.jpeg" class="card-img-top" alt="Kratigoyal">
+                <div class="card-body">
+                    <p><b>KRATI GOYAL</b>Software Developer</p>
+                    <div>
+                        <a href="mailto:kratigoyal2302@gmail.com" class="email-icon fas fa-envelope"></a>
+                        <a href="https://www.linkedin.com/in/krati-goyal-0b35bb213/" class="fab fa-linkedin"></a>
+                        <a href="https://github.com/Kratigoyal" class="fab fa-github"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <img src="/static/Images/swati1.jpg" class="card-img-top" alt="Swati Jain">
+                <div class="card-body">
+                    <p><b>SWATI JAIN</b>Software Developer</p>
+                    <div>
+                        <a href="mailto:swati2003jain@gmail.com" class="email-icon fas fa-envelope"></a>
+                        <a href="https://www.linkedin.com/in/swati-jain-b760a4228/" class="fab fa-linkedin"></a>
+                        <a href="https://github.com/Swati-jain123/" class="fab fa-github"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</br>
+<div >
+    <h3 style="color: maroon; margin-left: 4%;">Get In Touch</h3>
+</div>
+<p style="margin-left: 4% ; margin-right: 5%; font-weight: bold; color: gray;">Have questions, suggestions, or want to collaborate? Feel free to contact us and be a part of the disease prediction revolution. Together, we can build a brighter, healthier tomorrow. Submit your questions or suggestion. We will get in touch with you shortly.</p>
+<p style="margin-left: 4%; font-weight: bold; color: gray;" >At Healthify, we're committed to bringing innovation, data, and healthcare together to predict, prevent, and transform lives.</p>
+
+<div class="containerL" style="border: 5px solid grey;">
+    <form action='/feed' method="post" id="getInTouchForm" onsubmit="showAlert()">
+       <div class="form-groupL">
+    <label for="name">Name:</label>
+
+   <input class="inp" id="name" placeholder="Enter Your Name" name="name" required>
+</div>
+<div class="form-groupL">
+    <label for="email">Email:</label>
+    <input class="inp" id="email" placeholder="Enter Your Email" name="email" required>
+
+</div>
+
+        <div class="form-groupL">
+            <label for="state">State:</label>
+            <select id="state" name="state">
+                <option value="">Select state</option>
+                <!-- Add your options here -->
+                <option value="AN">Andaman and Nicobar Islands</option>
+    <option value="AP">Andhra Pradesh</option>
+    <option value="AR">Arunachal Pradesh</option>
+    <option value="AS">Assam</option>
+    <option value="BR">Bihar</option>
+    <option value="CH">Chandigarh</option>
+    <option value="CT">Chhattisgarh</option>
+    <option value="DN">Dadra and Nagar Haveli</option>
+    <option value="DD">Daman and Diu</option>
+    <option value="DL">Delhi</option>
+    <option value="GA">Goa</option>
+    <option value="GJ">Gujarat</option>
+    <option value="HR">Haryana</option>
+    <option value="HP">Himachal Pradesh</option>
+    <option value="JK">Jammu and Kashmir</option>
+    <option value="JH">Jharkhand</option>
+    <option value="KA">Karnataka</option>
+    <option value="KL">Kerala</option>
+    <option value="LA">Ladakh</option>
+    <option value="LD">Lakshadweep</option>
+    <option value="MP">Madhya Pradesh</option>
+    <option value="MH">Maharashtra</option>
+    <option value="MN">Manipur</option>
+    <option value="ML">Meghalaya</option>
+    <option value="MZ">Mizoram</option>
+    <option value="NL">Nagaland</option>
+    <option value="OR">Odisha</option>
+    <option value="PY">Puducherry</option>
+    <option value="PB">Punjab</option>
+    <option value="RJ">Rajasthan</option>
+    <option value="SK">Sikkim</option>
+    <option value="TN">Tamil Nadu</option>
+    <option value="TG">Telangana</option>
+    <option value="TR">Tripura</option>
+    <option value="UP">Uttar Pradesh</option>
+    <option value="UT">Uttarakhand</option>
+    <option value="WB">West Bengal</option>
+            </select>
+        </div>
+        <label for="city">City: </label>
+        <div class="form-groupL">
+            <select class="form-control" id="city" name="city"  required >
+                <option selected disabled hidden>Select Option </option>
+                {% for item in city %}
+                    <option value="{{ item }}">{{ item }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-groupL">
+            <label for="suggestion">Suggestion:</label>
+            <textarea id="suggestion" name="suggestion" rows="4" placeholder="Please give your valuable suggestion so that we can improve ourself. " required></textarea>
+        </div>
+        <center><button type="submit" class="btn btn-danger" style="width: 20%; height: 30%; font-weight: bolder; margin-top: 10px;" value="Feedback">Submit</button></center>
+    </form>
+</div>
+
+
+
+
+
+<!--Card End-->
+<br>
+
+
+<!--Footer-->
+
+{% include 'footer.html' %}
+
+<script type="text/javascript">
+    function showAlert() {
+        alert("Thank you for your submission! We will get in touch with you shortly.");
+    }
+    </script>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

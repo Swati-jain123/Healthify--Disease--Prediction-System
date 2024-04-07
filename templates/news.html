@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <style>
+        /* CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #ticker-container {
+            background-color:#AFEEEE    ;
+            padding: 10px;
+        }
+
+        #ticker-content {
+            display: inline-block;
+        }
+
+        .headline {
+            margin-right: 200px; /* Add space between headlines */
+            cursor: pointer; /* Change cursor to pointer */
+            font-size: 24px; /* Increase font size */
+            color:red;
+            font-weight:bold;
+        }
+
+        /* Hover effect */
+        .headline:hover {
+            color: blue;
+               font-weight:bold;
+        }
+
+        /* Style for the bullet point */
+        .headline::before {
+            content: "\00BB"; /* Unicode character for bullet point */
+            color: black; /* Set bullet point color to black */
+            margin-right: 5px; /* Add some space between bullet point and headline */
+            font-size: 28px; /* Increase bullet point size */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ticker-container">
+        <marquee behavior="scroll" direction="left" id="ticker-content"  scrollamount="17"> </marquee>
+    </div>
+
+    <script>
+        function fetchNewsHeadlines() {
+            fetch('/get_news_headlines')
+                .then(response => response.json())
+                .then(data => {
+                // After updating the content
+
+
+
+                    const tickerContent = document.getElementById('ticker-content');
+
+
+                     tickerContent.innerHTML = '<span style="color: brown; font-weight: bold; font-size:32px; margin-right:800px; ">Latest Healthcare News </span>'; // Set inline styles for News Bulletin text
+<!--              tickerContent.setAttribute('scrollamount', '20'); // Adjust the scroll speed as needed-->
+             data.forEach(headline => {
+                        const headlineElement = document.createElement('span');
+                        headlineElement.textContent = headline;
+                        headlineElement.className = 'headline';
+                        headlineElement.addEventListener('click', () => {
+                            const searchQuery = encodeURIComponent(headline);
+                            window.location.href = `https://www.google.com/search?q=${searchQuery}`;
+                        });
+                        tickerContent.appendChild(headlineElement);
+                    });
+                })
+                .catch(error => console.error('Error fetching news headlines:', error));
+        }
+
+        // Fetch news headlines initially
+        fetchNewsHeadlines();
+
+    </script>
+</body>
+</html>

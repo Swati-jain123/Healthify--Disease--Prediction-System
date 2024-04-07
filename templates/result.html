@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Healthify</title>
+		<link rel="stylesheet" href="./static/style.css"> 
+		<link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+		 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> 
+		<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+		<style>
+
+ .containerx {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: whitesmoke;
+    border: 5px solid silver;
+    border-radius: 20px;
+    margin: 10px 10%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    margin: 20px;
+    background-color: aliceblue;
+    background-image: url("https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/w_2560%2Cc_limit/GoogleMapTA.jpg");
+}
+
+.button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: maroon;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    .containerx {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        margin: 20px 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .card {
+        width: 90%;
+    }
+}
+
+		body {
+              font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+           
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+    width: 90%; /* Adjusted width for responsiveness */
+    margin: 0 auto; /* Center the table */
+    border-collapse: collapse;
+
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    font-size: 16px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: rgb(3, 3, 62);
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    table {
+        width: 100%; /* Adjusted width for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    th, td {
+        padding: 10px; /* Adjusted padding for smaller screens */
+    }
+
+    th {
+        font-size: 16px; /* Adjusted font size for smaller screens */
+    }
+}
+     .commoncard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px; /* Add some top margin */
+        }
+
+        .cardL {
+            width: calc(30% - 20px); /* Adjusted width for responsiveness */
+            margin: 10px;
+            border: 1px solid #cec9c9;
+            border-radius: 5px;
+            padding: 20px;
+            font-weight: 550;
+            color: #042950;
+            background-color: rgb(193, 202, 202);
+        }
+
+        /* Media queries for responsiveness */
+        @media only screen and (max-width: 768px) {
+            .cardL {
+                width: calc(50% - 20px); /* Adjusted width for smaller screens */
+            }
+        }
+
+        @media only screen and (max-width: 576px) {
+            .cardL {
+                width: calc(100% - 20px); /* Adjusted width for even smaller screens */
+            }
+        }
+        p {
+            padding:0px;
+           
+        }
+        .results {
+    text-align: center;
+}
+ .prad {
+            color: maroon; /* Set text color to maroon */
+            text-align: center; /* Center the text */
+            margin-top: 20px; /* Add some top margin */
+        }
+
+        /* Media queries for responsiveness */
+        @media only screen and (max-width: 768px) {
+            .prad {
+                font-size: 24px; /* Adjust font size for smaller screens */
+            }
+        }
+
+        @media only screen and (max-width: 576px) {
+            .prad {
+                font-size: 20px; /* Further adjust font size for smaller screens */
+            }
+        }
+
+
+		</style>
+	</head>
+
+    <body>
+		 <!--Navbar-->
+         {% include 'Navbar.html' %}
+		<!-- Result -->
+		<div class="results">
+    {% if result and user %}
+        <h1 class="prad">Result : <span style="color: red; " class='danger'>Oops! You have Chances of '{{result}}'.Please Consult with doctor </span></h1>
+    {% else %}
+        <h1 class="prad"><span class='safe'>First Go <a style="color: red; " href="/disease">Predictor</a> to predict disease by your symptoms.</span></h1>
+    {% endif %}
+</div>
+
+<!-- Button Card -->
+<div class="containerx">
+    <div class="card">
+        <a href="https://www.google.com/maps/search/{{ result }}+doctor+near+me/" class="button">Doctor Near Me</a>
+    </div>
+    <div class="card">
+        <a href="https://www.google.com/maps/search/{{ result }}+hospital+near+me/" class="button">Hospital Near Me</a>
+    </div>
+</div>
+
+	<h1 class="prad">Common First Aid Situations and Home Treatments</h1>
+
+    <table  >
+        <tr>
+            <th>Common Situation</th>
+            <th>Home Treatment</th>
+        </tr>
+        <tr>
+            <td style="color: rgb(250, 74, 15); font-weight: bold;">Cuts and Scrapes</td>
+            <td>Wash the wound with soap and water, apply an antibiotic ointment, and cover with a sterile bandage.</td>
+        </tr>
+        <tr>
+            <td  style="color: rgb(250, 74, 15); font-weight: bold;">Burns</td>
+            <td>Hold the affected area under cool running water for at least 10 minutes, then cover with a sterile, non-adhesive dressing.</td>
+        </tr>
+        <tr>
+            <td  style="color: rgb(250, 74, 15); font-weight: bold;">Sprains and Strains</td>
+            <td>Rest the injured area, apply ice for 15-20 minutes every few hours, and use compression and elevation to reduce swelling.</td>
+        </tr>
+        <tr>
+            <td  style="color: rgb(250, 74, 15); font-weight: bold;">Nosebleeds</td>
+            <td>Sit upright and lean forward, pinch your nose just below the bony part, and maintain pressure for 10-15 minutes.</td>
+        </tr>
+        <tr>
+            <td  style="color: rgb(250, 74, 15); font-weight: bold;" >Insect Bites</td>
+            <td>Wash the area with soap and water, apply a cold pack to reduce swelling, and use over-the-counter anti-itch cream.</td>
+        </tr>
+        <tr>
+            <td  style="color: rgb(250, 74, 15); font-weight: bold;">Choking</td>
+            <td>Perform the Heimlich maneuver: stand behind the person and give quick upward thrusts below the ribcage.</td>
+        </tr>
+        <tr>
+            <td  style="color: rgb(250, 74, 15); font-weight: bold;" >Sunburn</td>
+            <td>Take frequent cool baths or showers, apply soothing lotions that contain aloe vera, and drink plenty of water.</td>
+        </tr>
+        <tr>
+            <td  style="color: rgb(250, 74, 15); font-weight: bold;">Stings</td>
+            <td>Remove the stinger if visible, wash the area with soap and water, apply a cold pack, and use over-the-counter pain relievers.</td>
+        </tr>
+        <tr>
+            <td  style="color: rgb(250, 74, 15); font-weight: bold;">Allergic Reactions</td>
+            <td>Administer an over-the-counter antihistamine, apply a cool compress, and seek medical attention if symptoms persist.</td>
+        </tr>
+        <tr>
+            <td  style="color: rgb(250, 74, 15); font-weight: bold;">Minor Eye Injuries</td>
+            <td>Rinse the eye with clean water for 10-15 minutes, avoid rubbing the eye, and seek medical help if the irritation persists.</td>
+        </tr>
+		<tr>
+            <td style="color: rgb(250, 74, 15); font-weight: bold;">Fracture</td>
+            <td>Immobilize the injured area, apply ice to reduce swelling, and seek immediate medical attention for proper diagnosis and treatment.</td>
+        </tr>
+        <tr>
+            <td style="color: rgb(250, 74, 15); font-weight: bold;">Heart Attack</td>
+            <td>Call emergency services immediately, have the person sit upright.
+                <br/>
+				Perform CPR (Cardiopulmonary Resuscitation) if Necessary: If the person is unresponsive and not breathing normally, you should begin CPR. 
+				<br/>
+				To perform CPR, follow these steps:
+				<br/>
+				Place the heel of your hand on the center of the person's chest.
+				<br/>
+				Place your other hand on top of the first hand and interlock your fingers.
+				<br/>
+				Position yourself, so your shoulders are directly above your hands, and push hard and fast, aiming for a rate of 100 to 120 compressions per minute.
+				<br/>
+				Help the Person Sit Upright: If the person is conscious, help them into a comfortable sitting position. This can help ease their breathing and reduce the strain on their heart.
+				<br/>
+				Administer Aspirin if Not Allergic: If the person is conscious and not allergic to aspirin, they can chew a regular strength aspirin (325mg) to help reduce clotting.</td>
+        </tr>
+        <tr>
+            <td style="color: rgb(250, 74, 15); font-weight: bold;">High Blood Pressure (Hypertension)</td>
+            <td>Encourage a healthy lifestyle with a balanced diet and regular exercise, and monitor blood pressure regularly. Consult a doctor for proper medication and management.</td>
+        </tr>
+		<tr>
+            <td style="color: rgb(250, 74, 15); font-weight: bold;">Electric Shock</td>
+            <td>Turn off the source of electricity if possible, do not touch the person directly, and call for emergency medical assistance immediately.</td>
+        </tr>
+    </table>
+	<center><h1 class="prad">Common Items/Medicines We Can Kept In Our First-Aid Box.</h1></center>
+       
+	<div class="commoncard">
+
+        <div class="cardL">
+          
+            <p>Band-Aids</p>
+            <p>Gauze pads</p>
+            <p>Adhesive tape</p>
+            <p>Antibiotic ointment</p>
+            <p>Antiseptic wipes</p>
+            <p>Diarrhea Medicines (i.e. Imodium)</p>
+        </div>
+
+        <div class="cardL">
+           
+            <p>Cotton balls</p>
+            <p>Scissors</p>
+            <p>Tweezers</p>
+            <p>Thermometer</p>
+            <p>Pain relievers (e.g., ibuprofen, acetaminophen)</p>
+            <p>Calamine</p>
+        </div>
+
+        <div class="cardL">
+           
+            <p>Antihistamine</p>
+            <p>Hydrocortisone cream</p>
+            <p>Antacids</p>
+            <p>Anti-diarrheal medication</p>
+            <p>Paracetamol (Acetaminophen)</p>
+            <p>Antibiotics (as prescribed by a doctor)</p>
+        </div>
+
+    </div>
+		
+		 <!--Navbar-->
+
+         {% include 'footer.html' %}
+     {% include 'ak.html' %}
+	</body>
+</html>

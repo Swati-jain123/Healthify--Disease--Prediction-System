@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthify</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: aqua;
+        }
+
+        .popup {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px; /* Increased width for laptop screens */
+            border: 5px solid red;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 52px; /* Increased font size of close button */
+            color: black;
+        }
+
+        .btn {
+            width: 80%;
+            height: 50px;
+            font-weight: bolder;
+            margin-top: 10px;
+        }
+
+        h1 {
+            font-size: 24px; /* Decreased font size for the "Healthify" heading */
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay" class="overlay" onclick="closePopup()"></div>
+
+    <div id="popup" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h1 style="text-align: center;"><font color="maroon">Healthify: Disease Prediction System</font></h1>
+        <div class="container signin">
+            <p style="font-size: larger; font-weight: bolder;">For Continue, Please Login</p>
+            <center><button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='/register';">Login</button></center>
+        </div>
+        <div class="container signin">
+            <p style="font-size: larger; font-weight: bolder;">Don't have an account?</p>
+            <center><button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='/register';">Register Now</button></center>
+        </div>
+    </div>
+
+    <script>
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+            window.location.href = "/"; // Replace "/" with your desired page
+        }
+    </script>
+</body>
+</html>

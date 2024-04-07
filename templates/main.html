@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: auto;
+            padding: 10px;
+            border-radius: 20px;
+            border: 5px solid gray;
+        }
+
+        .card-container {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box; /* Ensure padding is included in width calculation */
+        }
+
+        .custom-card {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 100%;
+            height: 90%;
+        }
+
+        u {
+            font-weight: bold;
+        }
+
+        b {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .container {
+            margin-top: 3rem;
+        }
+
+        .left-content {
+            color: maroon;
+            text-align: left;
+        }
+
+        .right-content {
+            font-family: "Arial", sans-serif;
+            color: #4f4f4f;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .heading1 {
+            color: #800000;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .heading2 {
+            color: #800000;
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .hr-style {
+            background-color: #0b877a;
+            height: 5px;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+                margin-left: 20px; /* Remove left margin on small screens */
+                margin-right: 20px; /* Remove right margin on small screens */
+            }
+
+            .card-container {
+                padding: 0;
+                  margin-left: 20px; /* Remove left margin on small screens */
+                margin-right: 20px; /* Remove right margin on small screens */
+            }
+
+            .custom-image-container {
+                padding: 0;
+            }
+
+            .container {
+                margin-top: 2rem; /* Adjust margin-top for better spacing on small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h3 style="color: maroon; text-align: center; margin: 20px;">Why Choose Us ?</h3>
+    <div class="main-container">
+        <div class="card-container">
+            <div class="custom-card" style="background-color: #f06363;">
+                <h5>Accuracy:</h5>
+                <h6>Our system is built on extensive medical knowledge and vast datasets, ensuring reliable predictions.</h6>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="custom-card" style="background-color: #63b4f0;">
+                <h5>Privacy:</h5>
+                <h6>We prioritize your data security and follow strict privacy policies.</h6>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="custom-card" style="background-color: #60d394;">
+                <h5>Accessibility:</h5>
+                <h6>Our platform is user-friendly and available 24/7 from the comfort of your home.</h6>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="custom-card" style="background-color: #d3b63d;">
+                <h5>Empowerment:</h5>
+                <h6>Knowledge is power. We empower you with valuable health insights.</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 left-content">
+                <h3>OUR TEAM</h3>
+                <hr class="hr-style" width="60px">
+                <h4>One Team, Many Talents.</h4>
+            </div>
+            <div class="col-12 col-md-6 right-content">
+                <h5>With a culture of collaboration, our dedicated team of Software engineers work tirelessly to bring you the best disease prediction system. We're committed to your health and well-being.</h5>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+
+        .containerx {
+            margin-top: 30px;
+            max-width: 600px;
+            margin: 0 auto; /* Center the container horizontally */
+            border: 5px solid gray;
+            border-radius: 5px;
+            padding: 20px;
+
+        }
+
+        .row {
+            margin-bottom: 20px;
+            display: flex; /* Use flexbox for better alignment */
+            align-items: center;
+        }
+
+        .label {
+            font-weight: bold;
+            flex-basis: 150px; /* Set a fixed width for the labels */
+        }
+
+        .info {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            flex-grow: 1; /* Allow the info section to grow */
+        }
+
+        @media screen and (max-width: 576px) {
+            .label {
+                flex-basis: 100px; /* Adjust label width for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Your Navbar -->
+    <div>
+        {% include 'Navbar.html' %}
+    </div>
+
+    <div class="containerx">
+        <div class="row">
+            <div class="label">Name:</div>
+            <div class="info">{{user[0]}}</div>
+        </div>
+        <div class="row">
+            <div class="label">Email:</div>
+            <div class="info">{{user[4]}}</div>
+        </div>
+        <div class="row">
+            <div class="label">Phone Number:</div>
+            <div class="info">{{user[2]}}</div>
+        </div>
+        <div class="row">
+            <div class="label">Sex:</div>
+            <div class="info">{{user[1]}}</div>
+        </div>
+        <div class="row">
+            <div class="label">City:</div>
+            <div class="info">{{user[3]}}</div>
+        </div>
+
+        <center>
+            <button type="submit" class="btn btn-danger" style="width: 30%; height: 30%; font-weight: bolder;" onclick="window.location.href='/logout';">Logout</button>
+        </center>
+    </div>
+
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+
+    {% include 'footer.html' %}
+
+    {% include 'ak.html' %}
+</body>
+</html>
