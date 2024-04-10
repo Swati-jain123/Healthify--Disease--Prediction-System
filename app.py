@@ -11,7 +11,7 @@ import google.generativeai as genai
 
 app = Flask(__name__)
 
-genai.configure(api_key="AIzaSyBt4aQFYIRbnzpd2jZT1GUP_O0y8gkvKYY")
+genai.configure(api_key="")
 
 
 newsapi_key = "899c9aee01ce4e3f9a347f3a98e7cc23"
