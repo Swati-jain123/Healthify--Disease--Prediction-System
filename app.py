@@ -14,7 +14,7 @@ app = Flask(__name__)
 genai.configure(api_key="")
 
 
-newsapi_key = "899c9aee01ce4e3f9a347f3a98e7cc23"
+newsapi_key = ""
 query = '"Disease " OR "ICMR "  OR "Medical health"   '  # Search for mentions of WHO in the articles
 url = f"https://newsapi.org/v2/everything?q={query}&apiKey={newsapi_key}"
 
