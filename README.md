@@ -2,7 +2,7 @@
 
 ### Overview
 
-A simple web application which uses Machine Learning algorithm to predict the heart condition of a person by providing some inputs about the person health like age, gender, blood pressure, cholesterol level etc built using `Flask` and deployed on `Heroku`.
+A simple web application which uses Machine Learning algorithm to predict the health desease condition of a person by providing some inputs about the person health like age,gender and symptoms built using `Flask`.
 
 ### Motivation 
 
@@ -15,8 +15,6 @@ As being a Data and ML enthusiast I have tried many different projects related t
   **Link of jupyter notebook -** *[https://github.com/asthasharma98/Data-Science/blob/main/Heart%20Disease%20Prediction/heart_disease_prediction.ipynb](https://github.com/asthasharma98/Data-Science/blob/main/Heart%20Disease%20Prediction/heart_disease_prediction.ipynb)*
   
 **A Demo of the Web App :**
-
-![Heart_disease](https://github.com/asthasharma98/Heart-Disease-Prediction-Deployment/blob/master/Readme_resources/heart_disease.gif)
  
  
  ### Technical Aspect
@@ -24,8 +22,7 @@ As being a Data and ML enthusiast I have tried many different projects related t
  This Project is mainly divided into two parts:
  
  1. Exploring the dataset and traning the model using `Sklearn`.
- 2. Building and hosting a `flask` web app on `Heroku`.
-
+ 2. Building and hosting a `flask` web app.
 **About the repository Structure :**
 
 - Project consist `app.py` script which is used to run the application and is engine of this app. contians API that gets input from the user and computes a predicted value based on the model.
